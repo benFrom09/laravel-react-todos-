@@ -8,7 +8,7 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "test":"jest"
+        "test": "jest"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
@@ -26,6 +26,8 @@
     },
     "dependencies": {
         "@tinymce/tinymce-react": "^3.3.2",
-        "bootstrap": "^4.3.1"
+        "bootstrap": "^4.3.1",
+        "react-router-dom": "^5.0.1",
+        "styled-components": "^4.3.2"
     }
 }

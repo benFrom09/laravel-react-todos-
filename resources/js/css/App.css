@@ -1,0 +1,45 @@
+:root {
+    --lemonDarkTheme:#5C7214;
+    --lemonLightTheme:#A6C242;
+    --lemonSuperlightTheme:rgb(196, 243, 26);
+    --darkText:#343434;
+    --lightText:#EAEAEA;
+    --mainYellow:rgb(247, 231, 10);
+}
+
+html,body {
+    width:100%;
+    height: 100%;
+    color:var(--darkText);
+}
+
+a {
+    color:var(--darkText);
+    text-decoration:none;
+    transition:all 0.4s ease-in-out;
+}
+
+a:hover {
+    color:var(--mainYellow);
+}
+
+
+.todos-navbar {
+    background: linear-gradient(var(--lemonDarkTheme),var(--lemonLightTheme));
+    min-height: 60px;
+    height: 120px;
+    font-size:1.3rem;
+    color:var(--darkText);
+}
+.todos-navbar a {
+    font-size:1.5rem;
+}
+
+.todos-underline {
+    height: 5px;
+    background:yellow;
+    transition:all 0.4s linear;
+    width:100%;
+}
+
+

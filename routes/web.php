@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/api/projects','ProjectController@index')->name('api.projects');
+
+Route::get('/',function(){
     return view('welcome');
 });
