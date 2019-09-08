@@ -1,45 +1,107 @@
 :root {
-    --lemonDarkTheme:#5C7214;
-    --lemonLightTheme:#A6C242;
-    --lemonSuperlightTheme:rgb(196, 243, 26);
     --darkText:#343434;
     --lightText:#EAEAEA;
-    --mainYellow:rgb(247, 231, 10);
+    --bgLight:#F6F6F6;
+    --bgPrimary:#049DAF;
+    --bgDark:#D6C8C5;
+    --mainRed:#E91E63;
+    --mainGreen:#4EBF57;
+    --mainYellow:#FFC100;
+}
+
+.bg-primary {
+    background: var(--bgPrimary)!important;
 }
 
 html,body {
     width:100%;
     height: 100%;
+    background:var(--bgLight);
     color:var(--darkText);
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
     color:var(--darkText);
     text-decoration:none;
     transition:all 0.4s ease-in-out;
+    font-family: 'Montserrat';
 }
 
-a:hover {
+.list-group-item {
+    border:none!important;
+}
+.card-header {
+    background:#ffffff!important;
+    border:none;
+}
+
+/**project component classes***************************/
+
+.p-icon {
+    padding:0.5rem;
+}
+
+.p-status {
+    font-size:0.8rem;
+    color:#999999;
+}
+.p-title {
+    padding:0.3rem;
+}
+.p-container {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px solid black;
+}
+
+.p-project-name {
+    width:30%;
+}
+
+.p-info {
+    padding:0.5rem;
+}
+.p-icon {
+    cursor:pointer;
+    margin-left:0.2rem;
+}
+
+.p-icon .fa-star {
+    color:rgb(214, 214, 214);
+}
+.p-icon .fa-star:hover {
     color:var(--mainYellow);
 }
-
-
-.todos-navbar {
-    background: linear-gradient(var(--lemonDarkTheme),var(--lemonLightTheme));
-    min-height: 60px;
-    height: 120px;
-    font-size:1.3rem;
-    color:var(--darkText);
-}
-.todos-navbar a {
-    font-size:1.5rem;
+@media (min-width:0) and (max-width:1024px){
+    .p-container {
+        flex-direction: column;
+    }
+    .p-project-name {
+        width:100%;
+        justify-content: center;
+    }
 }
 
-.todos-underline {
-    height: 5px;
-    background:yellow;
-    transition:all 0.4s linear;
-    width:100%;
+/**********end project component classes***************/
+
+/*********ProjectList component classes **************/
+.plist-btn-container {
+    display: flex;
+    justify-content: center;
 }
+@media (min-width:0) and (max-width:1024px) {
+    .plist-btn-container {
+        flex-wrap: wrap;
+        font-size:70%;
+    }
+}
+
+/************** Annoucments component ********************/
+.announcement {
+
+}
+
 
 

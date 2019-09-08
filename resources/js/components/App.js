@@ -7,6 +7,8 @@ import { Editor } from '@tinymce/tinymce-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../css/App.css';
+import Home from './Home';
+import {Button} from './Buttons';
 
 
 export default class App extends Component {
@@ -15,9 +17,17 @@ export default class App extends Component {
             <React.Fragment>
                 <Router>
                     <Header/>
-                    <Switch>
-                        <Route exact path='/' component={ProjectList}></Route>
-                    </Switch>
+                    <div className="container py-4">
+                        <Switch>
+                            <Route exact path='/' component={Home}></Route>
+                            <Route  path='/projects'>
+                                <div className="form-group">
+                                    <Button>noveau projet</Button>
+                                </div>
+                                <ProjectList/>
+                            </Route>
+                        </Switch>
+                    </div>
                 </Router>
             </React.Fragment>
        );
