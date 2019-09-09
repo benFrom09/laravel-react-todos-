@@ -13,4 +13,12 @@ class ProjectController extends Controller
 
        return response()->json($project);
     }
+
+    public function show(Project $project) {
+        return response()->json($project);
+    }
+
+    public function store(Request $request) {
+        dd($request);
+    }
 }

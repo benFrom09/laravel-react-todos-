@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Project(props) {
-    const {name,description,id,created_at,completed} = props.project;
+    const {name,id,created_at,completed} = props.project;
     let tasks_count;
     const style = {
         maxWidth:"500px",
@@ -14,8 +14,12 @@ export default function Project(props) {
                 <div className="p-icon">
                     <i className="fas fa-star"/>
                 </div>
-                <div className="p-icon">
+                <div onClick={(e)=> props.handleColor(e)} className="p-icon">
                     <i className="fas fa-circle"/>
+                </div>
+                <div className="colors none">{props.colors.map((color,id)=>{
+                    return <div className="color" key={id + 1} style={{background:color}} title={color}></div>
+                    })}
                 </div>
                 <Link to={`/project/${id}`}><h5 className="m-0 text-justify p-title">{name}</h5></Link>
             </div>
