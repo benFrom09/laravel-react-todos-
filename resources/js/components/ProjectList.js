@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import Project from './Project';
+import ProjectListItem from './ProjectListItem';
 import {Button} from './Buttons';
 
 export default class ProjectList extends Component {
@@ -46,7 +46,7 @@ export default class ProjectList extends Component {
                 <div className="card-body">
                     <ul className="list-group">
                         {projects.map(project => {
-                            return (<li className="list-group-item" key={project.id}><Project handleColor={this.handleColor} colors={this.state.colors} project={project} /></li>);
+                            return (<li className="list-group-item" key={project.id}><ProjectListItem handleColor={this.handleColor} colors={this.state.colors} project={project} /></li>);
                         })}
                     </ul>
                 </div>

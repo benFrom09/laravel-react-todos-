@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Switch,Route } from 'react-router-dom';
 import Header from './Header';
-import ProjectList from './ProjectList';
 import { Editor } from '@tinymce/tinymce-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../css/App.css';
 import Home from './Home';
-import {Button} from './Buttons';
 import moment from 'moment';
 import Modal from './Modal';
-import ProjectForm from './ProjectForm';
 import ProjectPage from './ProjectPage';
+import Project from './Project';
 
 export default class App extends Component {
     constructor(props){
@@ -57,6 +55,7 @@ export default class App extends Component {
                             <Route  path='/projects'>
                                 <ProjectPage openModal={this.openModal} colors={this.state.pColors} />
                             </Route>
+                            <Route path="/project/:id" component={Project}/>
                         </Switch>
                     </div>
                     <Modal title={this.state.modalTitle} content={this.state.modalContent} close={this.closeModal} show={this.state.showModal}/>

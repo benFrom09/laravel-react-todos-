@@ -1,44 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import Axios from 'axios';
 
-export default function Project(props) {
-    console.log(props);
-    const {name,id,start_date,end_date,completed,color} = props.project;
-    let tasks_count;
-    const style = {
-        maxWidth:"500px",
+export default class Project extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            project:{},
+            tasks:[]
+        }
     }
+    componentDidMount(){
+        const projectId = this.props.match.params.id;
+        Axios.get(`/api/project/${projectId}`).then(response => {
+            this.setState({project:response.data});
+        });
+    }
+    render() {
+        const {name,description,start_date,end_date,color,completed} = this.state.project
+        return (
+            <React.Fragment>
+                <div className="card">
+                    <div className="card-header">
+                        <div className="card-title d-flex justify-content-between">
+                            <h2><i className="fas fa-circle" style={{color:color}}/> {name}</h2>
+                            <div><span>statut:</span> {completed ? "archivé" : "en cours"}</div>
+                            <div className="p-icon">
+                                <i title="préférences" className="fas fa-cog"/>
+                            </div>
+                        </div>
+                        <div><i className="fas fa-calendar-alt"/> du <span>{start_date}</span> au <span>{end_date}</span></div>
+                    </div>
+                    <div className="card-body">
 
-    return (
-
-        <div className="p-container">
-            <div className="d-flex align-items-center p-project-name">
-                <div className="p-icon">
-                    <i className={`fas fa-star ${completed ? 'p-completed' : ''}`}/>
+                    </div>
+                    <div className="card-footer"></div>
                 </div>
-                <div onClick={(e)=> props.handleColor(e)} className="p-icon">
-                    <i className="fas fa-circle" style={{color:color}}/>
-                </div>
-                <div className="colors none">{props.colors.map((color,id)=>{
-                    return <div className="color" key={id + 1} style={{background:color}} title={color}></div>
-                    })}
-                </div>
-                <Link to={`/project/${id}`}><h5 className="m-0 text-justify p-title">{name}</h5></Link>
-            </div>
-            <div className="p-info">
-                crée le:<span className="p-status"> {start_date}</span>
-            </div>
-            <div className="p-info">
-                deadline:<span className="p-status"> {end_date}</span>
-            </div>
-            <div className="p-info">
-                status:<span className="p-status"> {completed ? "archivé" : "en cours"}</span>
-            </div>
-        </div>
-
-
-
-
-    );
+            </React.Fragment>
+        )
+    }
 }
-
