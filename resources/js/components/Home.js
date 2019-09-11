@@ -5,8 +5,8 @@ import Clock from './Clock';
 import TaskList from './TaskList';
 
 export default function Home(props) {
-    const {user,date} = props;
-    console.log(user);
+    const {user,date,colors} = props;
+    console.log(colors);
     return (
         <React.Fragment>
             <div className="jumbotron hero-usr">
@@ -25,7 +25,7 @@ export default function Home(props) {
             <div className="row">
                 <div className="col-12" >
                     <div className="p-list">
-                        <ProjectList color={props.color}/>
+                        <ProjectList colors={colors}/>
                     </div>
                 </div>
             </div>

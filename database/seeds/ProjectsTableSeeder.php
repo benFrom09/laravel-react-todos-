@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Project;
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Seeder;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -14,15 +15,24 @@ class ProjectsTableSeeder extends Seeder
     {
         //
         $faker = \Faker\Factory::create('fr_FR');
-        for($i = 0 ; $i < 10; $i++){
+
             $project = new Project;
             $project->name = "Project " . $faker->userName;
             $project->description = $faker->text(100);
-            $project->completed = false;
-            $project->created_at= \Carbon\Carbon::now();
-            $project->updated_at = \Carbon\Carbon::now();
+            $project->completed = true;
+            $project->color = '#B200FF';
+            $project->start_date = Carbon::create(2019,8,19,0,0,0,'Europe/Paris')->format('d-m-Y');
+            $project->end_date = Carbon::create(2019,8,19,0,0,0,'Europe/Paris')->addWeeks(2)->format('d-m-Y');
             $project->save();
+            $project2 = new Project;
+            $project2->name = "Project " . $faker->userName;
+            $project2->description = $faker->text(100);
+            $project2->completed = false;
+            $project2->color = '#3F9843';
+            $project2->start_date = Carbon::now('Europe/Paris')->format('d-m-Y');
+            $project2->end_date = Carbon::now('Europe/Paris')->addWeeks(2)->format('d-m-Y');
+            $project2->save();
 
-        }
+
     }
 }

@@ -12,6 +12,7 @@ import {Button} from './Buttons';
 import moment from 'moment';
 import Modal from './Modal';
 import ProjectForm from './ProjectForm';
+import ProjectPage from './ProjectPage';
 
 export default class App extends Component {
     constructor(props){
@@ -21,6 +22,9 @@ export default class App extends Component {
             showModal:false,
             modalContent:"Ceci est un exemple",
             modalTitle:"Exemple",
+            /**
+             *
+             */
             pColors:[
                 '#B200FF','#EE4884','#B200FF','#8860C8',
                 '#6675C6','#2192E8','#03A4E8','#01B4C7',
@@ -34,6 +38,7 @@ export default class App extends Component {
     }
     openModal(context,title){
         this.setState({showModal:!this.state.showModal,modalContent:context,modalTitle:title});
+
     }
     closeModal() {
         this.setState({showModal:!this.state.showModal});
@@ -47,13 +52,10 @@ export default class App extends Component {
                     <div className="container py-4">
                         <Switch>
                             <Route exact path='/'>
-                                <Home color={this.state.pColors} user={this.state.user ? this.state.user : "user"} date={moment().format('LL')}/>
+                                <Home colors={this.state.pColors} user={this.state.user ? this.state.user : "user"} date={moment().format('LL')}/>
                             </Route>
                             <Route  path='/projects'>
-                                <div className="form-group">
-                                    <Button onClick={()=>this.openModal(<ProjectForm color={this.state.pColors}/>,"Ajouter un projet")}>noveau projet</Button>
-                                </div>
-                                <ProjectList color={this.state.pColors}/>
+                                <ProjectPage openModal={this.openModal} colors={this.state.pColors} />
                             </Route>
                         </Switch>
                     </div>

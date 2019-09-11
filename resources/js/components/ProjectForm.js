@@ -52,7 +52,7 @@ export default class ProjectForm extends Component {
                         </div>
                         <div>Choisir une couleur:</div>
                         <div className="d-flex py-2">
-                            {this.props.color.map((c,i) => {
+                            {this.props.colors.map((c,i) => {
                                 return <div title={c} key={i + 1} className="color" style={{background:c}}></div>
                             })}
                         </div>

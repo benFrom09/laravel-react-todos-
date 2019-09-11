@@ -9,9 +9,10 @@ export default class ProjectList extends Component {
         super(props);
         this.state = {
             projects:[],
-            colors:this.props.color
+            colors:this.props.colors
         }
         this.handleColor = this.handleColor.bind(this);
+        console.log(props);
     }
     componentDidMount(){
        axios.get("/api/projects").then(response => { this.setState({projects:response.data})})

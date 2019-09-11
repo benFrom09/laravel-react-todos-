@@ -17,3 +17,18 @@ Route::post('/api/project/store','ProjectController@store');
 Route::get('/',function(){
     return view('welcome');
 });
+Route::get('/projects',function(){
+    return view('welcome');
+});
+Route::get('/project/{id}',function($id){
+    return view('welcome');
+});
+Route::get('/calendar',function(){
+    return view('welcome');
+});
+Route::get('/preferences',function(){
+    return view('welcome');
+});
+Route::get('/public',function(){
+    return view('welcome');
+});
