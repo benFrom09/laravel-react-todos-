@@ -6,7 +6,6 @@ import TaskList from './TaskList';
 
 export default function Home(props) {
     const {user,date,colors} = props;
-    console.log(colors);
     return (
         <React.Fragment>
             <div className="jumbotron hero-usr">
@@ -25,7 +24,7 @@ export default function Home(props) {
             <div className="row">
                 <div className="col-12" >
                     <div className="p-list">
-                        <ProjectList colors={colors}/>
+                        <ProjectList search={false} url="/api/all" colors={colors}/>
                     </div>
                 </div>
             </div>

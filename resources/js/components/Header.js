@@ -7,7 +7,7 @@ export default function Header() {
         <header className="app-head">
             <nav className='navbar'>
                 <div className='container'>
-                    <Link className='navbar-brand' to='/'>Home</Link>
+                    <Link className='navbar-brand' to='/'><i className="fas fa-home"/></Link>
                     <Link className='navbar-brand' to='/projects'>Projets</Link>
                     <Link className='navbar-brand' to='/calendar'>Calendrier</Link>
                     <Link className='navbar-brand' to='/preferences'>Peferences</Link>

@@ -47,15 +47,17 @@ export default class App extends Component {
             <React.Fragment>
                 <Router>
                     <Header/>
-                    <div className="container py-4">
+                    <div className="container c-wrapper">
                         <Switch>
                             <Route exact path='/'>
-                                <Home colors={this.state.pColors} user={this.state.user ? this.state.user : "user"} date={moment().format('LL')}/>
+                                <Home  colors={this.state.pColors} user={this.state.user ? this.state.user : "user"} date={moment().format('LL')}/>
                             </Route>
                             <Route  path='/projects'>
-                                <ProjectPage openModal={this.openModal} colors={this.state.pColors} />
+                                <ProjectPage  colors={this.state.pColors} />
                             </Route>
-                            <Route path="/project/:id" component={Project}/>
+                            <Route path="/project/:id" render={
+                                args => <Project {...args} openModal={this.openModal} colors={this.state.pColors}/>}/>}
+                            }/>
                         </Switch>
                     </div>
                     <Modal title={this.state.modalTitle} content={this.state.modalContent} close={this.closeModal} show={this.state.showModal}/>

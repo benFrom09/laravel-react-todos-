@@ -2,18 +2,51 @@
     --darkText:#343434;
     --lightText:#EAEAEA;
     --bgLight:#F6F6F6;
-    --bgPrimary:#049DAF;
+    --bgPrimary:#3a557d;
     --bgDark:#D6C8C5;
     --mainRed:#E91E63;
     --mainGreen:#4EBF57;
     --mainYellow:#FFC100;
 }
 
+#app {
+    position:relative;
+}
+
 .app-head {
-    background:#fff;
+    /*background:#fff;*/
+    background:var(--bgPrimary);
     height:120px;
     display:flex;
     align-items: center;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:500;
+}
+
+.app-head a {
+    color:#ddd;
+    transition: all 0.3s ease-in-out;
+
+}
+.app-head a::after {
+    content:"";
+    display:block;
+    width:0;
+    height:1px;
+
+    transition: all 0.5s ease-in-out 0.2s;
+}
+.app-head a:hover::after{
+    width:100%;
+    height:1px;
+    background:var(--lightText);
+}
+
+.c-wrapper {
+    padding-top:150px!important;
 }
 
 html,body {
@@ -29,6 +62,10 @@ a {
     text-decoration:none;
     transition:all 0.4s ease-in-out;
     font-family: 'Montserrat';
+}
+
+.app-head {
+
 }
 
 /********************Header Component **************************/
@@ -82,8 +119,12 @@ a {
     padding:0.5rem;
 }
 .p-icon {
-    cursor:pointer;
+
     margin-left:0.2rem;
+}
+
+.p-icon .fas, .p-icon .far {
+    cursor:pointer;
 }
 
 .p-icon .fa-star {

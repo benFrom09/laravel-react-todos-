@@ -22,7 +22,7 @@ export default function Modal(props) {
                         {props.content ? props.content : "Ceci est un exemple"}
                     </div>
                     <div className="modal-footer">
-                        {props.btn}
+                        {props.btn?props.btn:""}
                     </div>
                 </div>
             </div>
